@@ -36,7 +36,7 @@ public class Parser {
             pos++;
             return new Java_files.VarNode(tokens.get(pos-1));
         }
-        throw new Error("Variable ou Nombre attendu à la position: "+pos);
+        throw new Error("Переменная или число, ожидаемое в позиции: "+pos);
     }
     public Java_files.Node parsePar(){
         if (tokens.get(pos).type.typeName.equals("LPAR")){
@@ -76,7 +76,7 @@ public class Parser {
                 Java_files.Node rightVal = parseFormula();
                 return new BinOpNode(assign, varNode, rightVal);
             }
-            throw new Error("Après la variable attendue = à la position:"+pos);
+            throw new Error("После ожидаемой переменной = в позиции:"+pos);
         }
         else if (tokens.get(pos).type.typeName.equals("PRINT")){
             pos++;
@@ -91,7 +91,7 @@ public class Parser {
             pos++;
             return parseFor();
         }
-        throw new Error("Erreur de positionnement: "+pos+". Ожидалось действие или переменная");
+        throw new Error("Ошибка позиционирования: "+pos+". Ожидалось действие или переменная");
     }
     public Java_files.Node parseFor(){
         Java_files.Node leftVal=parseFormula();
